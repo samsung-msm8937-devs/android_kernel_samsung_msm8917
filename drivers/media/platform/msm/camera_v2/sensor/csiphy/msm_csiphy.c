@@ -981,7 +981,8 @@ static int msm_csiphy_release(struct csiphy_device *csiphy_dev, void *arg)
 		return 0;
 	}
 
-	if (csiphy_dev->csiphy_3phase == CSI_3PHASE_HW) {
+	if (csiphy_dev->csiphy_3phase == CSI_3PHASE_HW &&
+		csiphy_dev->csi_3phase == 1) {
 		msm_camera_io_w(0x0,
 			csiphy_dev->base + csiphy_dev->ctrl_reg->csiphy_3ph_reg.
 			mipi_csiphy_3ph_cmn_ctrl5.addr);
@@ -1095,7 +1096,8 @@ static int msm_csiphy_release(struct csiphy_device *csiphy_dev, void *arg)
 		return 0;
 	}
 
-	if (csiphy_dev->csiphy_3phase == CSI_3PHASE_HW) {
+	if (csiphy_dev->csiphy_3phase == CSI_3PHASE_HW &&
+		csiphy_dev->csi_3phase == 1) {
 		msm_camera_io_w(0x0,
 			csiphy_dev->base + csiphy_dev->ctrl_reg->csiphy_3ph_reg.
 			mipi_csiphy_3ph_cmn_ctrl5.addr);
